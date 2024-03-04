@@ -671,6 +671,7 @@ export default function autocomplete<T extends AutocompleteItem>(settings: Autoc
 
     return {
         destroy,
-        fetch: manualFetch
+        clear,
+        fetch: manualFetch,
     };
 }

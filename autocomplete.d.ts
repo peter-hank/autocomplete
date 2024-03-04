@@ -130,5 +130,7 @@ export interface AutocompleteResult {
      * in certain situations.
      */
     fetch: () => void;
+    clear: () => void;
+    getItems: () => void;
 }
 export default function autocomplete<T extends AutocompleteItem>(settings: AutocompleteSettings<T>): AutocompleteResult;

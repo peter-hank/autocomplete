@@ -153,6 +153,8 @@ export interface AutocompleteResult {
      * in certain situations.
      */
     fetch: () => void;
+    clear: () => void;
+    getItems: () => void;
 }
 
 export default function autocomplete<T extends AutocompleteItem>(settings: AutocompleteSettings<T>): AutocompleteResult {
@@ -260,6 +262,11 @@ export default function autocomplete<T extends AutocompleteItem>(settings: Autoc
         input.setAttribute('aria-activedescendant', '');
         input.setAttribute('aria-expanded', 'false');
         detach();
+    }
+
+
+    function getItems() {
+        return items;
     }
 
     /**
@@ -672,7 +679,7 @@ export default function autocomplete<T extends AutocompleteItem>(settings: Autoc
     return {
         destroy,
         clear,
-        items,
+        getItems,
         fetch: manualFetch,
     };
 }

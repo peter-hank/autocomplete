@@ -100,6 +100,9 @@
             input.setAttribute('aria-expanded', 'false');
             detach();
         }
+        function getItems() {
+            return items;
+        }
         /**
          * Update autocomplete position
          */
@@ -455,7 +458,9 @@
         doc.addEventListener('scroll', scrollEventHandler, true);
         return {
             destroy: destroy,
-            fetch: manualFetch
+            clear: clear,
+            getItems: getItems,
+            fetch: manualFetch,
         };
     }
 
